@@ -1,0 +1,197 @@
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        int opcion, numero, confirmacion;
+        String usuario, contrasena;
+
+        Scanner scanner = new Scanner(System.in);
+
+        do {
+             System.out.print("Opciones: \n" +
+                    "1. Comprobar si un numero es divisible por 3 y 5\n" +
+                    "2. Verificar usuario y contrasena\n" +
+                    "3. Comprobar si un numero es par o multiplo de 3\n" +
+                    "4. Comprobar acceso de administrador\n" +
+                    "5. Validar un numero entero no negativo\n" +
+                    "6. Verificar calificacion de estudiante\n" +
+                    "7. Solicitar tarjeta de credito\n" +
+                    "8. Abrir puerta con llave\n" +
+                    "9. Comprobar si un numero es par\n" +
+                    "10. Verificar usuario y codigo de verificacion\n" +
+                    "11. Comprobar acceso a red\n" +
+                    "12. Intercalar palabras y numeros\nSu seleccion:");
+
+            opcion = scanner.nextInt();
+
+            if (opcion > 0 && opcion <= 12) {
+                System.out.println("--------------------------- Ejercicio " + opcion + " -------------------------------");
+                switch (opcion) {
+                    case 1:
+                        System.out.print("Ingrese un numero:");
+                        numero = scanner.nextInt();
+
+                        if (numero % 5 == 0 && numero % 3 == 0) {
+                            System.out.println("El numero es divisible entre 3 y 5\n");
+                        } else {
+                            System.out.println("El numero no es divisible entre 3 y 5\n");
+                        }
+                        break;
+
+                    case 2:
+                        System.out.print("Ingrese su usuario:");
+                        usuario = scanner.next();
+                        System.out.print("Ingrese su contrasena:");
+                        contrasena = scanner.next();
+
+                        if (usuario.equals("usuario123") && contrasena.equals("contrasena456")) {
+                            System.out.println("Acceso concedido");
+                        } else {
+                            System.out.println("Acceso denegado");
+                        }
+                        break;
+
+                    case 3:
+                        System.out.print("Ingrese un numero:");
+                        numero = scanner.nextInt();
+
+                        if (numero % 2 == 0 || numero % 3 == 0) {
+                            System.out.println("El numero es par o multiplo de 3");
+                        } else {
+                            System.out.println("El numero no es par ni multiplo de 3");
+                        }
+                        break;
+
+                    case 4:
+                        System.out.print("Es administrador?\nSi\nNo");
+                        usuario = scanner.next();
+                        System.out.print("Ingrese su numero de puntos:");
+                        numero = scanner.nextInt();
+
+                        if (usuario.equalsIgnoreCase("Si") || numero > 1000) {
+                            System.out.println("Acceso concedido");
+                        } else {
+                            System.out.println("Acceso invalido");
+                        }
+                        break;
+
+                    case 5:
+                        System.out.print("Ingrese un numero entero:");
+                        numero = scanner.nextInt();
+
+                        if (numero >= 0) {
+                            System.out.println("Numero valido");
+                        } else {
+                            System.out.println("Numero invalido");
+                        }
+                        break;
+
+                    case 6:
+                        System.out.print("Ingrese la calificacion de un alumno:");
+                        numero = scanner.nextInt();
+
+                        if (numero > 60) {
+                            System.out.println("Estudiante aprobado");
+                        } else {
+                            System.out.println("Estudiante no aprobado");
+                        }
+                        break;
+
+                    case 7:
+                        System.out.print("Ingrese sus ingresos mensuales:");
+                        numero = scanner.nextInt();
+                        System.out.print("Tiene deudas pendientes?\nSi\nNo");
+                        usuario = scanner.next();
+
+                        if (numero > 2000 && usuario.equalsIgnoreCase("No")) {
+                            System.out.println("Puede solicitar una tarjeta de credito");
+                        } else {
+                            System.out.println("No puede solicitar una tarjeta de credito");
+                        }
+                        break;
+
+                    case 8:
+                        System.out.print("Tiene la llave?\nSi\nNo");
+                        usuario = scanner.next();
+
+                        if (usuario.equalsIgnoreCase("Si")) {
+                            System.out.println("Puede abrir la puerta");
+                        } else {
+                            System.out.println("No puede abrir la puerta");
+                        }
+                        break;
+
+                    case 9:
+                        System.out.print("Ingrese un numero:");
+                        numero = scanner.nextInt();
+
+                        if (numero % 2 == 0) {
+                            System.out.println("El numero es par");
+                        } else {
+                            System.out.println("El numero no es par");
+                        }
+                        break;
+
+                    case 10:
+                        System.out.print("Ingrese su usuario:");
+                        usuario = scanner.next();
+                        System.out.print("Ingrese su codigo de verificacion:");
+                        contrasena = scanner.next();
+
+                        if (usuario.equals("usuario123") && contrasena.equals("123456")) {
+                            System.out.println("Acceso concedido");
+                        } else {
+                            System.out.println("Acceso denegado");
+                        }
+                        break;
+
+                    case 11:
+                        System.out.print("Es administrador?\nSi\nNo");
+                        usuario = scanner.next();
+                        System.out.print("Ingrese su direccion IP:");
+                        numero = scanner.nextInt();
+
+                        if (usuario.equalsIgnoreCase("Si") || numero == 123 || numero == 456) {
+                            System.out.println("Acceso concedido");
+                        } else {
+                            System.out.println("Acceso denegado");
+                        }
+                        break;
+
+                    case 12:
+                        System.out.print("Ingrese una palabra:");
+                        usuario = scanner.next();
+                        System.out.print("Ingrese una secuencia numerica:");
+                        contrasena = scanner.next();
+
+                        int longitudPalabra = usuario.length();
+                        int longitudNumero = contrasena.length();
+                        int longitudCifrado = Math.max(longitudPalabra, longitudNumero);
+
+                        StringBuilder resultado = new StringBuilder();
+
+                        for (int i = 0; i < longitudCifrado; i++) {
+                            if (i < longitudPalabra) {
+                                resultado.append(usuario.charAt(i));
+                            }
+                            if (i < longitudNumero) {
+                                resultado.append(contrasena.charAt(i));
+                            }
+                        }
+                        System.out.print("Palabras intercaladas: " + resultado.toString());
+                        break;
+                }
+            } else {
+                System.out.println("Ingrese un numero valido");
+            }
+
+            System.out.print("Otro ejercicio:1, Finish:0:");
+            confirmacion = scanner.nextInt();
+
+        } while (confirmacion == 1);
+
+        scanner.close();
+    }
+}
+
