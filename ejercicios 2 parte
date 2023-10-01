@@ -1,0 +1,191 @@
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        int choice;
+        boolean P, Q, R, S;
+
+        Scanner scanner = new Scanner(System.in);
+
+        do {
+            choice = getMenuChoice(scanner);
+
+            if (choice >= 1 && choice <= 6) {
+                System.out.println("------------------------ Elegiste la opcion " + choice + " ---------------------");
+                switch (choice) {
+                    case 1:
+                        System.out.println("En un videojuego de aventuras, el jugador debe enfrentarse a un dragon y resolver un acertijo para avanzar.");
+                        System.out.println("El acertijo consiste en tres proposiciones:");
+                        System.out.println("P: Si el dragon es amigable, entonces es posible hablar con el.");
+                        System.out.println("Q: Si se puede hablar con el dragon, entonces revelara el camino secreto.");
+                        System.out.println("R: Si se revela el camino secreto, entonces el jugador podra avanzar.");
+
+                        boolean dragonFriendly = getUserResponse(scanner, "El dragon es amigable?");
+                        P = Q = R = dragonFriendly;
+
+                        if (P) {
+                            System.out.println("El dragon es amigable, por lo que es posible hablar con el.");
+                            System.out.println("Al hablar con el dragon, se revela el camino secreto.");
+                            System.out.println("El jugador puede avanzar.\n");
+                        } else {
+                            System.out.println("El dragon no es amigable, por lo que no se puede hablar con el.");
+                            System.out.println("El dragon no revela el camino secreto.");
+                            System.out.println("El jugador no puede avanzar.\n");
+                        }
+                        break;
+
+                    case 2:
+                        System.out.println("En una organizacion, se esta planificando un evento importante.");
+                        System.out.println("Para que el evento sea un exito, se han establecido las siguientes condiciones:");
+                        System.out.println("P: Si se contrata a un buen orador, entonces el evento sera interesante.");
+                        System.out.println("Q: Si el evento es interesante, entonces habra una alta asistencia.");
+                        System.out.println("R: Si hay una alta asistencia, entonces se obtendran patrocinadores.");
+
+                        boolean hireGoodOrator = getUserResponse(scanner, "Se contrata a un buen orador?");
+                        P = Q = R = hireGoodOrator;
+
+                        if (P) {
+                            System.out.println("Se contrata un buen orador, por lo tanto, el evento sera interesante.");
+                            System.out.println("Al ser un evento interesante, habra alta asistencia.");
+                            System.out.println("Al haber muchos asistentes, se obtuvieron patrocinadores.\n");
+                        } else {
+                            System.out.println("No se contrata un buen orador, por lo tanto, el evento no es interesante.");
+                            System.out.println("Al no ser un evento interesante, habra poca asistencia.");
+                            System.out.println("Al haber pocos asistentes, no se obtienen patrocinadores.\n");
+                        }
+                        break;
+
+                    case 3:
+                        System.out.println("En una red de computadoras, se estan implementando medidas de seguridad.");
+                        System.out.println("Se han establecido las siguientes condiciones:");
+                        System.out.println("P: Si un usuario tiene acceso a los servidores internos, entonces debe tener autenticacion de dos factores.");
+                        System.out.println("Q: Si un usuario tiene autenticacion de dos factores, entonces tiene acceso a ciertos recursos confidenciales.");
+                        System.out.println("R: Si un usuario tiene acceso a ciertos recursos confidenciales, entonces se registra su actividad.");
+
+                        boolean hasAccessToInternalServers = getUserResponse(scanner, "El usuario tiene acceso a los servidores internos?");
+                        P = Q = R = hasAccessToInternalServers;
+
+                        if (P) {
+                            System.out.println("El usuario cuenta con autenticacion de dos factores.");
+                            System.out.println("El usuario tiene acceso a ciertos recursos confidenciales.");
+                            System.out.println("El usuario registra su actividad.\n");
+                        } else {
+                            System.out.println("El usuario no cuenta con autenticacion de dos factores.");
+                            System.out.println("El usuario no tiene acceso a ciertos recursos confidenciales.");
+                            System.out.println("El usuario no registra su actividad.\n");
+                        }
+                        break;
+
+                    case 4:
+                        System.out.println("Disena un sistema de control de acceso que determine si un usuario puede acceder a un sistema en funcion de multiples condiciones.");
+                        System.out.println("Debes usar proposiciones compuestas y Java para implementar este sistema.");
+                        System.out.println("Por ejemplo:");
+                        System.out.println("Un usuario puede acceder si tiene credenciales de administrador (P)");
+                        System.out.println("Y si su direccion IP esta en la lista de IP permitidas (R).");
+                        System.out.println("Ademas, si el usuario es un empleado temporal (Q) o es un administrador,");
+                        System.out.println("puede acceder sin importar su direccion IP.\n");
+
+                        boolean isAdmin = getUserResponse(scanner, "El usuario tiene credenciales de administrador?");
+                        boolean isTempEmployee = getUserResponse(scanner, "Es empleado temporal?");
+                        boolean hasValidIPAddress = getUserResponse(scanner, "Tiene una direccion IP permitida?");
+
+                        P = isAdmin;
+                        Q = isTempEmployee;
+                        R = hasValidIPAddress;
+
+                        if (P || Q) {
+                            System.out.println("El usuario puede acceder porque es administrador o trabajador temporal.\n");
+                        } else if (R) {
+                            System.out.println("El usuario puede acceder porque tiene una direccion IP valida.\n");
+                        } else {
+                            System.out.println("El usuario no puede acceder.\n");
+                        }
+                        break;
+
+                    case 5:
+                        System.out.println("Supongamos que estas desarrollando un programa de registro para una biblioteca.");
+                        System.out.println("Para registrarse, un usuario debe cumplir con las siguientes condiciones:");
+                        System.out.println("Debe ser mayor de 18  (P).");
+                        System.out.println("Debe tener una direccion de correo electronico valida (Q).");
+                        System.out.println("No debe tener multas pendientes en su cuenta de la biblioteca (R).\n");
+                        System.out.print("Ingrese su edad: ");
+                        int age = scanner.nextInt();
+                        System.out.print("Ingrese su correo: ");
+                        String email = scanner.next();
+                        boolean hasFines = getUserResponse(scanner, "Tiene multas pendientes?");
+
+
+                        P = age > 18;
+                        Q = isValidEmail(email);
+                        R = !hasFines;
+
+                        if (P && Q && R) {
+                            System.out.println("El usuario puede registrarse.\n");
+                        } else {
+                            System.out.println("El usuario no puede registrarse.\n");
+                        }
+                        break;
+
+                    case 6:
+                        System.out.println("Supongamos que estas desarrollando una aplicacion de comercio electronico y necesitas");
+                        System.out.println("establecer reglas de negocio para determinar si un cliente puede realizar una compra.");
+                        System.out.println("Las reglas son las siguientes:");
+                        System.out.println("El cliente debe tener una cuenta activa (P).");
+                        System.out.println("El producto debe estar en stock (Q).");
+                        System.out.println("El cliente debe tener un metodo de pago valido registrado (R).");
+                        System.out.println("El cliente debe haber iniciado sesion (S).\n");
+
+                        boolean hasActiveAccount = getUserResponse(scanner, "Tiene una cuenta activa?");
+                        boolean isProductInStock = getUserResponse(scanner, "El producto tiene stock?");
+                        boolean hasValidPaymentMethod = getUserResponse(scanner, "Tiene un metodo de pago valido registrado?");
+                        boolean isLoggedIn = getUserResponse(scanner, "Tiene la sesion iniciada?");
+
+                        P = hasActiveAccount;
+                        Q = isProductInStock;
+                        R = hasValidPaymentMethod;
+                        S = isLoggedIn;
+
+                        if (P && Q && R && S) {
+                            System.out.println("El usuario puede realizar la compra.\n");
+                        } else {
+                            System.out.println("El usuario no puede realizar la compra.\n");
+                        }
+                        break;
+                }
+            } else {
+                System.out.println("solo se puede hatsa el 6 wey");
+            }
+        } while (wantsToContinue(scanner));
+
+        scanner.close();
+    }
+
+    private static int getMenuChoice(Scanner scanner) {
+         System.out.println("-----------------------------------------------------");
+        System.out.print("Opciones:\n" +
+                "1. Logica de videojuego\n" +
+                "2. Planificacion de evento\n" +
+                "3. Seguridad de computadoras\n" +
+                "4. Control de acceso\n" +
+                "5. Razonamiento logico\n" +
+                "6. Reglas de negocio\n"+
+                "Elija el ejercicio: ");
+        return scanner.nextInt();
+    }
+
+    private static boolean getUserResponse(Scanner scanner, String message) {
+        System.out.print(message + " (Si = s, No = n): ");
+        String response = scanner.next().toLowerCase();
+        return response.equals("s");
+    }
+
+    private static boolean wantsToContinue(Scanner scanner) {
+        System.out.print("Desea realizar otro ejercicio? (Otro ejercicio: 1,Finish: 0 ): ");
+        int response = scanner.nextInt();
+        return response == 1;
+    }
+    private static boolean isValidEmail(String email) {
+        return email.matches("^[A-Za-z0-9+_.-]+@(.+)$");
+    }
+}
