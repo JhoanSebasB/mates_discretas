@@ -1,0 +1,508 @@
+import java.util.*;
+import java.util.Collections;
+
+public class EjerciciosConjuntos {
+
+    public static void main(String[] args) {
+        int yesNO;
+        Scanner scanner = new Scanner(System.in);
+        do {
+            int opcion = obtenerOpcion(scanner);
+            realizarEjercicio(opcion);
+            
+            System.out.print("--------------------------- \n(1: Otro ejercicio, 0: finish): ");
+            yesNO = scanner.nextInt();
+        } while (yesNO == 1);
+        scanner.close();
+    }
+
+    public static int obtenerOpcion(Scanner scanner) {
+        System.out.print("Seleccione el ejercicio del 1 - 33: ");
+        return scanner.nextInt();
+    }
+
+    public static void realizarEjercicio(int opcion) {
+        switch (opcion) {
+            case 1:
+                ejercicio1();
+                break;
+            case 2:
+                ejercicio2();
+                break;
+            case 3:
+                ejercicio3();
+                break;
+            case 4:
+                ejercicio4();
+                break;
+            case 5:
+                ejercicio5();
+                break;
+            case 6:
+                ejercicio6();
+                break;
+            case 7:
+                ejercicio7();
+                break;
+            case 8:
+                ejercicio8();
+                break;
+            case 9:
+                ejercicio9();
+                break;
+            case 10:
+                ejercicio10();
+                break;
+            case 11:
+                ejercicio11();
+                break;
+            case 12:
+                ejercicio12();
+                break;
+            case 13:
+                ejercicio13();
+                break;
+            case 14:
+                ejercicio14();
+                break;
+            case 15:
+                ejercicio15();
+                break;
+            case 16:
+                ejercicio16();
+                break;
+            case 17:
+                ejercicio17();
+                break;
+            case 18:
+                ejercicio18();
+                break;
+            case 19:
+                ejercicio19();
+                break;
+            case 20:
+                ejercicio20();
+                break;
+            case 21:
+                ejercicio21();
+                break;
+            case 22:
+                ejercicio22();
+                break;
+            case 23:
+                ejercicio23();
+                break;
+            case 24:
+                ejercicio24();
+                break;
+            case 25:
+                ejercicio25();
+                break;
+            case 26:
+                ejercicio26();
+                break;
+            case 27:
+                ejercicio27();
+                break;
+            case 28:
+                ejercicio28();
+                break;
+            case 29:
+                ejercicio29();
+                break;
+            case 30:
+                ejercicio30();
+                break;
+            case 31:
+                ejercicio31();
+                break;
+            case 32:
+                ejercicio32();
+                break;
+            case 33:
+                ejercicio33();
+                break;
+            default:
+                System.out.println("wey hasta el 33");
+                break;
+        }
+    }
+
+    public static void ejercicio1() {
+        Set<Integer> conjuntoEnterosA = new HashSet<>(Arrays.asList(1, 2, 3, 4));
+        Set<Integer> conjuntoEnterosB = new HashSet<>(Arrays.asList(3, 4, 5));
+
+        Set<Integer> union = new HashSet<>(conjuntoEnterosA);
+        union.addAll(conjuntoEnterosB);
+
+        System.out.println("A: " + conjuntoEnterosA);
+        System.out.println("B: " + conjuntoEnterosB);
+        System.out.println("A U B: " + union);
+    }
+
+    public static void ejercicio2() {
+        Set<String> conjuntoLetrasX = new HashSet<>(Arrays.asList("a", "b", "c"));
+        Set<String> conjuntoLetrasY = new HashSet<>(Arrays.asList("b", "c", "d"));
+
+        Set<String> unionString = new HashSet<>(conjuntoLetrasX);
+        unionString.addAll(conjuntoLetrasY);
+
+        System.out.println("X: " + conjuntoLetrasX);
+        System.out.println("Y: " + conjuntoLetrasY);
+        System.out.println("X U Y: " + unionString);
+    }
+
+    public static void ejercicio3() {
+        Set<Integer> conjuntoEnterosA = new HashSet<>(Arrays.asList(1, 2, 3, 4));
+        Set<String> conjuntoLetrasX = new HashSet<>(Arrays.asList("a", "b", "c"));
+
+        System.out.println("A: " + conjuntoEnterosA);
+        System.out.println("X: " + conjuntoLetrasX);
+        System.out.println("A U X: []\n");
+    }
+
+    public static void ejercicio4() {
+        Set<Integer> conjuntoEnterosA = new HashSet<>(Arrays.asList(1, 2, 3, 4));
+        Set<Integer> conjuntoEnterosB = new HashSet<>(Arrays.asList(3, 4, 5));
+
+        Set<Integer> interseccion = new HashSet<>(conjuntoEnterosA);
+        interseccion.retainAll(conjuntoEnterosB);
+
+        System.out.println("A: " + conjuntoEnterosA);
+        System.out.println("B: " + conjuntoEnterosB);
+        System.out.println("Interseccion: " + interseccion + "\n");
+    }
+
+    public static void ejercicio5() {
+        Set<String> conjuntoLetrasX = new HashSet<>(Arrays.asList("a", "b", "c"));
+        Set<String> conjuntoLetrasY = new HashSet<>(Arrays.asList("b", "c", "d"));
+
+        Set<String> interseccionString = new HashSet<>(conjuntoLetrasX);
+        interseccionString.retainAll(conjuntoLetrasY);
+
+        System.out.println("X: " + conjuntoLetrasX);
+        System.out.println("Y: " + conjuntoLetrasY);
+        System.out.println("Interseccion: " + interseccionString + "\n");
+    }
+
+    public static void ejercicio6() {
+        Set<Integer> conjuntoEnterosA = new HashSet<>(Arrays.asList(1, 2, 3, 4));
+        Set<String> conjuntoLetrasX = new HashSet<>(Arrays.asList("a", "b", "c"));
+
+        System.out.println("A: " + conjuntoEnterosA);
+        System.out.println("X: " + conjuntoLetrasX);
+        System.out.println("Interseccion: []\n");
+    }
+
+    public static void ejercicio7() {
+        Set<Integer> conjuntoEnterosA = new HashSet<>(Arrays.asList(1, 2, 3, 4));
+        Set<Integer> conjuntoEnterosB = new HashSet<>(Arrays.asList(3, 4, 5));
+
+        Set<Integer> diferencia = new HashSet<>(conjuntoEnterosA);
+        diferencia.removeAll(conjuntoEnterosB);
+
+        System.out.println("A: " + conjuntoEnterosA);
+        System.out.println("B: " + conjuntoEnterosB);
+        System.out.println("Diferencia (A - B): " + diferencia + "\n");
+    }
+
+    public static void ejercicio8() {
+        Set<String> conjuntoLetrasX = new HashSet<>(Arrays.asList("a", "b", "c"));
+        Set<String> conjuntoLetrasY = new HashSet<>(Arrays.asList("b", "c", "d"));
+
+        Set<String> diferenciaString = new HashSet<>(conjuntoLetrasX);
+        diferenciaString.removeAll(conjuntoLetrasY);
+
+        System.out.println("X: " + conjuntoLetrasX);
+        System.out.println("Y: " + conjuntoLetrasY);
+        System.out.println("Diferencia (X - Y): " + diferenciaString + "\n");
+    }
+
+    public static void ejercicio9() {
+        Set<Integer> conjuntoEnterosA = new HashSet<>(Arrays.asList(1, 2, 3, 4));
+        Set<Integer> conjuntoEnterosB = new HashSet<>(Arrays.asList(3, 4, 5));
+
+        Set<Integer> diferencia = new HashSet<>(conjuntoEnterosB);
+        diferencia.removeAll(conjuntoEnterosA);
+
+        System.out.println("A: " + conjuntoEnterosA);
+        System.out.println("B: " + conjuntoEnterosB);
+        System.out.println("Diferencia (B - A): " + diferencia + "\n");
+    }
+
+    public static void ejercicio10() {
+        Set<String> conjuntoLetrasX = new HashSet<>(Arrays.asList("a", "b", "c"));
+        Set<String> conjuntoLetrasY = new HashSet<>(Arrays.asList("b", "c", "d"));
+
+        Set<String> diferenciaString = new HashSet<>(conjuntoLetrasY);
+        diferenciaString.removeAll(conjuntoLetrasX);
+
+        System.out.println("X: " + conjuntoLetrasX);
+        System.out.println("Y: " + conjuntoLetrasY);
+        System.out.println("Diferencia (Y - X): " + diferenciaString + "\n");
+    }
+
+    public static void ejercicio11() {
+        Set<Integer> conjuntoEnterosA = new HashSet<>(Arrays.asList(1, 2, 3, 4));
+        Set<Integer> conjuntoEnterosB = new HashSet<>(Arrays.asList(3, 4, 5));
+
+        boolean esSubconjunto = conjuntoEnterosA.containsAll(conjuntoEnterosB);
+
+        System.out.println("A: " + conjuntoEnterosA);
+        System.out.println("B: " + conjuntoEnterosB);
+        System.out.println("B es subconjunto de A: " + esSubconjunto + "\n");
+    }
+
+    public static void ejercicio12() {
+        Set<String> conjuntoLetrasX = new HashSet<>(Arrays.asList("a", "b", "c"));
+        Set<String> conjuntoLetrasY = new HashSet<>(Arrays.asList("b", "c", "d"));
+
+        boolean esSubconjuntoString = conjuntoLetrasX.containsAll(conjuntoLetrasY);
+
+        System.out.println("X: " + conjuntoLetrasX);
+        System.out.println("Y: " + conjuntoLetrasY);
+        System.out.println("Y es subconjunto de X: " + esSubconjuntoString + "\n");
+    }
+
+    public static void ejercicio13() {
+        Set<Integer> conjuntoEnterosA = new HashSet<>(Arrays.asList(1, 2, 3, 4));
+        Set<Integer> conjuntoEnterosB = new HashSet<>(Arrays.asList(3, 4, 5));
+
+        boolean esSubconjunto = conjuntoEnterosB.containsAll(conjuntoEnterosA);
+
+        System.out.println("A: " + conjuntoEnterosA);
+        System.out.println("B: " + conjuntoEnterosB);
+        System.out.println("A es subconjunto de B: " + esSubconjunto + "\n");
+    }
+
+    public static void ejercicio14() {
+        Set<String> conjuntoLetrasX = new HashSet<>(Arrays.asList("a", "b", "c"));
+        Set<String> conjuntoLetrasY = new HashSet<>(Arrays.asList("b", "c", "d"));
+
+        boolean esSubconjuntoString = conjuntoLetrasY.containsAll(conjuntoLetrasX);
+
+        System.out.println("X: " + conjuntoLetrasX);
+        System.out.println("Y: " + conjuntoLetrasY);
+        System.out.println("X es subconjunto de Y: " + esSubconjuntoString + "\n");
+    }
+
+    public static void ejercicio15() {
+        Set<Integer> conjuntoEnterosA = new HashSet<>(Arrays.asList(1, 2, 3));
+        Set<Integer> conjuntoEnterosB = new HashSet<>(Arrays.asList(1, 2, 3, 4, 5));
+
+        boolean sonDisjuntos = Collections.disjoint(conjuntoEnterosA, conjuntoEnterosB);
+
+        System.out.println("A: " + conjuntoEnterosA);
+        System.out.println("B: " + conjuntoEnterosB);
+        System.out.println("A y B son conjuntos disjuntos: " + sonDisjuntos + "\n");
+    }
+
+    public static void ejercicio16() {
+        Set<String> conjuntoLetrasX = new HashSet<>(Arrays.asList("a", "b", "c"));
+        Set<String> conjuntoLetrasY = new HashSet<>(Arrays.asList("d", "e", "f"));
+
+        boolean sonDisjuntosString = Collections.disjoint(conjuntoLetrasX, conjuntoLetrasY);
+
+        System.out.println("X: " + conjuntoLetrasX);
+        System.out.println("Y: " + conjuntoLetrasY);
+        System.out.println("X y Y son conjuntos disjuntos: " + sonDisjuntosString + "\n");
+    }
+
+    public static void ejercicio17() {
+        Set<Integer> conjuntoEnterosA = new HashSet<>(Arrays.asList(1, 2, 3));
+        Set<Integer> conjuntoEnterosB = new HashSet<>(Arrays.asList(4, 5, 6));
+
+        boolean sonDisjuntos = Collections.disjoint(conjuntoEnterosA, conjuntoEnterosB);
+
+        System.out.println("A: " + conjuntoEnterosA);
+        System.out.println("B: " + conjuntoEnterosB);
+        System.out.println("A y B son conjuntos disjuntos: " + sonDisjuntos + "\n");
+    }
+
+    public static void ejercicio18() {
+        Set<String> conjuntoLetrasX = new HashSet<>(Arrays.asList("a", "b", "c"));
+        Set<String> conjuntoLetrasY = new HashSet<>(Arrays.asList("a", "b", "c"));
+
+        boolean sonDisjuntosString = Collections.disjoint(conjuntoLetrasX, conjuntoLetrasY);
+
+        System.out.println("X: " + conjuntoLetrasX);
+        System.out.println("Y: " + conjuntoLetrasY);
+        System.out.println("X y Y son conjuntos disjuntos: " + sonDisjuntosString + "\n");
+    }
+
+    public static void ejercicio19() {
+        Set<Integer> conjuntoEnterosA = new HashSet<>(Arrays.asList(1, 2, 3));
+        Set<Integer> conjuntoEnterosB = new HashSet<>(Arrays.asList(1, 2, 3));
+
+        boolean sonDisjuntos = Collections.disjoint(conjuntoEnterosA, conjuntoEnterosB);
+
+        System.out.println("A: " + conjuntoEnterosA);
+        System.out.println("B: " + conjuntoEnterosB);
+        System.out.println("A y B son conjuntos disjuntos: " + sonDisjuntos + "\n");
+    }
+
+    public static void ejercicio20() {
+        Set<String> conjuntoLetrasX = new HashSet<>(Arrays.asList("a", "b", "c"));
+        Set<String> conjuntoLetrasY = new HashSet<>(Arrays.asList("d", "e", "f"));
+
+        boolean sonDisjuntosString = Collections.disjoint(conjuntoLetrasX, conjuntoLetrasY);
+
+        System.out.println("X: " + conjuntoLetrasX);
+        System.out.println("Y: " + conjuntoLetrasY);
+        System.out.println("X y Y son conjuntos disjuntos: " + sonDisjuntosString + "\n");
+    }
+
+    public static void ejercicio21() {
+        Set<Integer> conjuntoEnterosA = new HashSet<>(Arrays.asList(1, 2, 3, 4));
+        Set<Integer> conjuntoEnterosB = new HashSet<>(Arrays.asList(3, 4, 5));
+
+        Set<Integer> complementoA = new HashSet<>(conjuntoEnterosA);
+        complementoA.removeAll(conjuntoEnterosB);
+
+        System.out.println("A: " + conjuntoEnterosA);
+        System.out.println("B: " + conjuntoEnterosB);
+        System.out.println("Complemento de A respecto a B: " + complementoA + "\n");
+    }
+
+    public static void ejercicio22() {
+        Set<String> conjuntoLetrasX = new HashSet<>(Arrays.asList("a", "b", "c"));
+        Set<String> conjuntoLetrasY = new HashSet<>(Arrays.asList("b", "c", "d"));
+
+        Set<String> complementoX = new HashSet<>(conjuntoLetrasX);
+        complementoX.removeAll(conjuntoLetrasY);
+
+        System.out.println("X: " + conjuntoLetrasX);
+        System.out.println("Y: " + conjuntoLetrasY);
+        System.out.println("Complemento de X respecto a Y: " + complementoX + "\n");
+    }
+
+    public static void ejercicio23() {
+        Set<Integer> conjuntoEnterosA = new HashSet<>(Arrays.asList(1, 2, 3, 4));
+        Set<Integer> conjuntoEnterosB = new HashSet<>(Arrays.asList(3, 4, 5));
+
+        Set<Integer> complementoB = new HashSet<>(conjuntoEnterosB);
+        complementoB.removeAll(conjuntoEnterosA);
+
+        System.out.println("A: " + conjuntoEnterosA);
+        System.out.println("B: " + conjuntoEnterosB);
+        System.out.println("Complemento de B respecto a A: " + complementoB + "\n");
+    }
+
+    public static void ejercicio24() {
+        Set<String> conjuntoLetrasX = new HashSet<>(Arrays.asList("a", "b", "c"));
+        Set<String> conjuntoLetrasY = new HashSet<>(Arrays.asList("b", "c", "d"));
+
+        Set<String> complementoY = new HashSet<>(conjuntoLetrasY);
+        complementoY.removeAll(conjuntoLetrasX);
+
+        System.out.println("X: " + conjuntoLetrasX);
+        System.out.println("Y: " + conjuntoLetrasY);
+        System.out.println("Complemento de Y respecto a X: " + complementoY + "\n");
+    }
+
+    public static void ejercicio25() {
+        Set<Integer> conjuntoEnterosA = new HashSet<>(Arrays.asList(1, 2, 3));
+        Set<Integer> conjuntoEnterosB = new HashSet<>(Arrays.asList(1, 2, 3, 4, 5));
+
+        boolean esSubconjuntoPropio = esSubconjuntoPropio(conjuntoEnterosA, conjuntoEnterosB);
+
+        System.out.println("A: " + conjuntoEnterosA);
+        System.out.println("B: " + conjuntoEnterosB);
+        System.out.println("A es subconjunto propio de B: " + esSubconjuntoPropio + "\n");
+    }
+
+    public static void ejercicio26() {
+        Set<String> conjuntoLetrasX = new HashSet<>(Arrays.asList("a", "b", "c"));
+        Set<String> conjuntoLetrasY = new HashSet<>(Arrays.asList("b", "c", "d"));
+
+        boolean esSubconjuntoPropioString = esSubconjuntoPropio(conjuntoLetrasX, conjuntoLetrasY);
+
+        System.out.println("X: " + conjuntoLetrasX);
+        System.out.println("Y: " + conjuntoLetrasY);
+        System.out.println("X es subconjunto propio de Y: " + esSubconjuntoPropioString + "\n");
+    }
+
+    public static void ejercicio27() {
+        Set<Integer> conjuntoEnterosA = new HashSet<>(Arrays.asList(1, 2, 3, 4));
+        Set<Integer> conjuntoEnterosB = new HashSet<>(Arrays.asList(3, 4, 5));
+
+        boolean esSubconjuntoPropio = esSubconjuntoPropio(conjuntoEnterosB, conjuntoEnterosA);
+
+        System.out.println("A: " + conjuntoEnterosA);
+        System.out.println("B: " + conjuntoEnterosB);
+        System.out.println("B es subconjunto propio de A: " + esSubconjuntoPropio + "\n");
+    }
+
+    public static void ejercicio28() {
+        Set<String> conjuntoLetrasX = new HashSet<>(Arrays.asList("a", "b", "c"));
+        Set<String> conjuntoLetrasY = new HashSet<>(Arrays.asList("a", "b", "c"));
+
+        boolean esSubconjuntoPropioString = esSubconjuntoPropio(conjuntoLetrasY, conjuntoLetrasX);
+
+        System.out.println("X: " + conjuntoLetrasX);
+        System.out.println("Y: " + conjuntoLetrasY);
+        System.out.println("Y es subconjunto propio de X: " + esSubconjuntoPropioString + "\n");
+    }
+
+    public static void ejercicio29() {
+        Set<Integer> conjuntoEnterosA = new HashSet<>(Arrays.asList(1, 2, 3));
+        Set<Integer> conjuntoEnterosB = new HashSet<>(Arrays.asList(1, 2, 3));
+
+        boolean esSubconjuntoPropio = esSubconjuntoPropio(conjuntoEnterosA, conjuntoEnterosB);
+
+        System.out.println("A: " + conjuntoEnterosA);
+        System.out.println("B: " + conjuntoEnterosB);
+        System.out.println("A es subconjunto propio de B: " + esSubconjuntoPropio + "\n");
+    }
+
+    public static void ejercicio30() {
+        Set<String> conjuntoLetrasX = new HashSet<>(Arrays.asList("a", "b", "c"));
+        Set<String> conjuntoLetrasY = new HashSet<>(Arrays.asList("d", "e", "f"));
+
+        boolean esSubconjuntoPropioString = esSubconjuntoPropio(conjuntoLetrasX, conjuntoLetrasY);
+
+        System.out.println("X: " + conjuntoLetrasX);
+        System.out.println("Y: " + conjuntoLetrasY);
+        System.out.println("X es subconjunto propio de Y: " + esSubconjuntoPropioString + "\n");
+    }
+
+    public static void ejercicio31() {
+        Set<Integer> conjuntoEnterosA = new HashSet<>(Arrays.asList(1, 2, 3, 4));
+        Set<Integer> conjuntoEnterosB = new HashSet<>(Arrays.asList(3, 4, 5));
+
+        Set<Integer> complementoA = new HashSet<>(conjuntoEnterosA);
+        complementoA.removeAll(conjuntoEnterosB);
+
+        System.out.println("A: " + conjuntoEnterosA);
+        System.out.println("B: " + conjuntoEnterosB);
+        System.out.println("Complemento de A respecto a B: " + complementoA + "\n");
+    }
+
+    public static void ejercicio32() {
+        Set<String> conjuntoLetrasX = new HashSet<>(Arrays.asList("a", "b", "c"));
+        Set<String> conjuntoLetrasY = new HashSet<>(Arrays.asList("b", "c", "d"));
+
+        Set<String> complementoX = new HashSet<>(conjuntoLetrasX);
+        complementoX.removeAll(conjuntoLetrasY);
+
+        System.out.println("X: " + conjuntoLetrasX);
+        System.out.println("Y: " + conjuntoLetrasY);
+        System.out.println("Complemento de X respecto a Y: " + complementoX + "\n");
+    }
+
+    public static void ejercicio33() {
+        Set<Integer> conjuntoEnterosA = new HashSet<>(Arrays.asList(1, 2, 3, 4));
+        Set<Integer> conjuntoEnterosB = new HashSet<>(Arrays.asList(3, 4, 5));
+
+        Set<Integer> complementoB = new HashSet<>(conjuntoEnterosB);
+        complementoB.removeAll(conjuntoEnterosA);
+
+        System.out.println("A: " + conjuntoEnterosA);
+        System.out.println("B: " + conjuntoEnterosB);
+        System.out.println("Complemento de B respecto a A: " + complementoB + "\n");
+    }
+
+    private static <T> boolean esSubconjuntoPropio(Set<T> conjuntoA, Set<T> conjuntoB) {
+        return conjuntoB.containsAll(conjuntoA) && !conjuntoA.equals(conjuntoB);
+    }
+}
